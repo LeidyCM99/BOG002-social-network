@@ -31,17 +31,34 @@
     cursor: pointer;
   }
  .enlaces{
- background-color: #ffff;
+ background-color:#fcf3e0;
  display: none;
  position: absolute;
+ height: auto;
+ width: 25vw;
  top: 20px;
  right: 5px;  
  }
  .setting{
-   width: 5em;
-   background-color: aquamarine;
+   width: 100%;
+   height: auto;
+   padding: 0.5em;
+   display: flex;
  }
-
+ a {
+  text-decoration:none;
+  color:inherit
+ }
+ #configuracion {
+  width: 8vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+#configuracion img {
+  width: 5vw;
+}
  #configuracion:hover .enlaces{
    display: block;
   

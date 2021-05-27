@@ -1,10 +1,10 @@
 import {Salir} from '../Firebase/firebaseAuth.js';
-import{ SavePublicaciones} from '../Firebase/firestore.js'
+import {SavePublicaciones} from '../Firebase/firestore.js'
 
 
-export function inicio(){
+export function inicio() {
 
-    let html= `
+    let html = `
     
 	<div id="encabezado">
 		<div id="logo"> FoodFans </div>
@@ -41,40 +41,37 @@ export function inicio(){
 
 	<div id="publicaciones">	
 	</div>
-`  
+`
     return html;
 }
 
-export function CerrarSesion()	{
-	let BotonCerrar = document.getElementById('cerrar-sesion');
-		BotonCerrar.addEventListener('click', Salir);
+export function CerrarSesion() {
+    let BotonCerrar = document.getElementById('cerrar-sesion');
+    BotonCerrar.addEventListener('click', Salir);
 }
 
-	//  obtener valores
-export async function ParaPublicar(){
+// obtener valores
+export async function ParaPublicar() {
 
+    const BtnPublicar = document.getElementById("publicar-btn")
+    await BtnPublicar.addEventListener("click", (e) => {
+        e.preventDefault();
 
-	const BtnPublicar = document.getElementById("publicar-btn")
-		  await BtnPublicar.addEventListener("click", (e) => {
-			e.preventDefault();
-			let user   		= firebase.auth().currentUser; //esta variable se usara en el documento firebaseauth
-			const nombre 		= user.displayName 
-			const descripcion   = document.querySelector(".publicar").value;
-			const lugar 		= document.querySelector("#input-lugar").value;
-			const objectoAccion =  new Date();
-			console.log(objectoAccion);
+        let user 			= firebase.auth().currentUser; // esta variable se usara en el documento firebaseauth
+        const nombre    	= user.displayName
+        const descripcion 	= document.querySelector(".publicar").value;
+        const lugar 		= document.querySelector("#input-lugar").value;
+        const objectoAccion = new Date();
 
+        const publicaciones = {
+            nombre,
+            descripcion,
+            foto: false,
+            fecha: Date(objectoAccion.toString()).replace(/ \w+-\d+ \(.*\)$/, ""),
+            lugar
+        }
+        SavePublicaciones(publicaciones);
+        document.querySelector(".area-publicar").reset();
+    })
 
-			 const publicaciones= {
-   					nombre,
-					descripcion,
-					foto: false,
-					fecha: Date(objectoAccion.toString()).replace(/ \w+-\d+ \(.*\)$/,""),
-   					lugar,
-			}
-			SavePublicaciones(publicaciones);
-			document.querySelector(".area-publicar").reset();
-			})
-	
 }
-

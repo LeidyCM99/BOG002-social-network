@@ -3,8 +3,8 @@
 export  function PrintCollection (Publicar, ID, NombreUser, Descripcion, Fecha, Lugar){
     
         Publicar.innerHTML += `	
-        <div class="post" data-id="${ID}">
-          <span class="nombre-usuario"  > ${NombreUser} </span>
+        <div class="post" >
+          <span class="nombre-usuario"> <i class="fas fa-user-circle"> </i> ${NombreUser} </span>
           <span class="contenido">${Descripcion } </span>
           <div id="fecha-lugar">
              <span class="fecha" > ${Fecha}</span>
@@ -12,9 +12,9 @@ export  function PrintCollection (Publicar, ID, NombreUser, Descripcion, Fecha, 
           </div>
           <div class="interaciones">
 
-              <button type="button"><i class="fas fa-star"></i> </button> 
-              <button class="editar" type="button"> <i class="far fa-edit" ></i></button> 
-              <button class="basura" type="button" ><i class="fas fa-trash-alt" ></i></button> 
+              <button type="button"><i class="fas fa-star"> </i class="contador"> <span> 1 </span></button> 
+              <button class="editar" type="button" data-id = "${ID}" > <i class="far fa-edit" > </i> Editar</button> 
+              <button class="basura" type="button" data-id = "${ID}" > <i class="fas fa-trash-alt" > </i> Eliminar </button> 
             
           </div>
         <div>`

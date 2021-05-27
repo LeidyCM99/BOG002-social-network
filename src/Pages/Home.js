@@ -4,7 +4,7 @@ export function home() {
    
        <div class="fondo">
         <h1 class="Titulo">FoodFans</h1>
-        <span>Social Network</span>
+        <span class= "subtitulo">Social Network</span>
         <p>Postea tus mejores platos, comparte tu experiencia y enseñala a tus amigos.</p>
 
 
