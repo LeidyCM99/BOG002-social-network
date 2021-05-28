@@ -80,7 +80,7 @@
     font-weight: normal;
     font-size: 1rem;
     position: relative;
-    top: 8em;
+    top: 0em;
     background-color: #7cbe84;
     transition: transform 250ms;
   }
@@ -106,7 +106,7 @@
   }
 
   /* formularios de registro e inicio de sesion */
-  form {
+  .formulario {
     font-family: 'Dancing Script', cursive;
     display: flex;
     flex-direction: column;
@@ -210,14 +210,12 @@
 
   .container_modal {
     display: flex;
-    background-color: rgba(0, 0, 0, 0.3);
     align-items: center;
     justify-content: center;
     position: fixed;
     pointer-events: none;
     opacity: 0;
     top: 0;
-    color: black !important;
     left: 0;
     background-color: rgba(0, 0, 0, 0.534);
     height: 100vh;
@@ -235,7 +233,11 @@
     pointer-events: auto;
     opacity: 1;
   }
-
+#form-modal{
+  width: 70vw;
+  height: 35vh;
+  background-color: #b5c9b7;
+}
   .modal {
     background-color: #fff;
     width: 80vw;
@@ -244,6 +246,7 @@
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     text-align: center;
+    color: black;
     height: 61vh;
     display: flex;
     flex-direction: column;
@@ -262,7 +265,6 @@
     font-weight: normal;
     font-size: 1rem;
     position: relative;
-    top: 6em;
     margin-top: 1em;
   }
 
@@ -280,6 +282,12 @@
     color: black !important;
     position: relative;
     top: 1.5em
+  }
+  #close-post{
+    background-color: #3233328c;
+    margin-top: 1em;
+    color: black !important;
+    position: relative;
   }
 
   #btn_signUp {
@@ -315,7 +323,7 @@
     justify-content: space-between;
     display: inline-flex;
     height: 3em;
-    width: 98vw;
+    width: 100vw;
     position: fixed;
     top: 0%;
     z-index: 100;
@@ -507,7 +515,7 @@
   }
 
   .nombre-usuario {
-    width: 20vw;
+    width: 60vw;
     height: 20px;
     color: black;
     font-family: poly;
@@ -515,9 +523,6 @@
     left: 1em;
     top: 1px; 
     display: flex;
-    justify-content: space-between;
-
-
   }
 
   .contenido {

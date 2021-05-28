@@ -53,11 +53,7 @@ export const router = (route) => {
                  content.innerHTML =  inicio();
                     ParaPublicar();
                     CerrarSesion();
-                    MostrarPublicaciones();
-                    // eliminar();
-                    
-                   
-                    
+                    MostrarPublicaciones();    
             }else {
               window.location.hash ='#/login'
             }
