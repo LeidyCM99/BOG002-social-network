@@ -90,7 +90,9 @@ export function DatosDeLogin() {
 
             const Email = document.getElementById("EmailUser").value;
             const Password = document.getElementById("PasswordUser").value;
-
+            localStorage.setItem("Email",  document.getElementById("EmailUser").value);
+            localStorage.setItem("Password" , document.getElementById("PasswordUser").value);
+            
             LoginUsuario(Email, Password)
         } else {
             console.log("no se envia");

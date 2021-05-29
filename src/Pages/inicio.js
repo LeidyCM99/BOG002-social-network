@@ -26,9 +26,9 @@ export function inicio() {
 		<span class= "setting" id="cerrar-sesion">Cerra sesion</span>
 	</div>
 	<form class="area-publicar">
-	<img id="foto-usuario" src="./imagenes/usuario.png">
+	<img  src="https://firebasestorage.googleapis.com/v0/b/social-network-19982.appspot.com/o/fotos%2Frestaurante.jpg?alt=media&token=ac173bd8-8d43-465e-ab26-eb6ac979dee7" id="foto-usuario">
 		<div class ="insertar-publicacion">
-			<textarea type="text" maxlength="250" minlength="2"  required class="publicar" placeholder=" ¿Que tienes para contar?">  </textarea>
+			<input type="text" maxlength="250" minlength="2"  required class="publicar" placeholder=" ¿Que tienes para contar?">  
 				<span class="area-lugar">
 					<img src="./imagenes/Location-1.svg">
 					<input id="input-lugar" type="text" maxlength="250" minlength="2"  required placeholder="¡Estoy aqui!">
@@ -57,17 +57,21 @@ export async function ParaPublicar() {
     await BtnPublicar.addEventListener("click", (e) => {
         e.preventDefault();
 
-        let user 			= firebase.auth().currentUser; // esta variable se usara en el documento firebaseauth
-        const nombre    	= user.displayName
+        const user 			= firebase.auth().currentUser; // esta variable se usara en el documento firebaseauth
+        const nombre    	= user.displayName;
+		const uid 			= user.uid 
         const descripcion 	= document.querySelector(".publicar").value;
         const lugar 		= document.querySelector("#input-lugar").value;
         const objectoAccion = new Date();
+		let fecha= objectoAccion.getDate() + "-"+ 0 +(objectoAccion.getMonth()+1) + "-" +objectoAccion.getFullYear() + "  "+ objectoAccion.getHours()
+		+ ":"+ objectoAccion.getMinutes();
 
         const publicaciones = {
             nombre,
+			uid,
             descripcion,
             foto: false,
-            fecha: Date(objectoAccion.toString()).replace(/ \w+-\d+ \(.*\)$/, ""),
+            fecha,
             lugar
         }
         SavePublicaciones(publicaciones);

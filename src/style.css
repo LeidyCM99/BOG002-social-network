@@ -6,7 +6,8 @@
   }
 
   #root {
-    width: 100%;
+    width: 100vw;
+    overflow: hidden;
   }
 
   /* Bienvenida/home */
@@ -234,6 +235,7 @@
     opacity: 1;
   }
 #form-modal{
+  padding: 1em 0.5em;
   width: 70vw;
   height: 35vh;
   background-color: #b5c9b7;
@@ -472,7 +474,6 @@
 }
 
 
-
   #foto-usuario {
     width: 50px;
     height: 50px;
@@ -482,6 +483,7 @@
     margin-left: 0.5em;
     position: relative;
     display: inline-flex;
+    border-radius: 100%;
   }
 
   #publicaciones {
@@ -515,7 +517,7 @@
   }
 
   .nombre-usuario {
-    width: 60vw;
+    width: 90vw;
     height: 20px;
     color: black;
     font-family: poly;
@@ -617,5 +619,6 @@
     height: 5vh;
     margin-left: 1em;
   }
+
 
 }

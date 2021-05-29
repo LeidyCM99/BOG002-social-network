@@ -1,9 +1,9 @@
-export function PrintCollection(Publicar, ID, NombreUser, Descripcion, Fecha, Lugar) {
+export function PrintCollection(Publicar, ID, Nombre, UID, Descripcion, Fecha, Lugar) {
 
     Publicar.innerHTML += `	
-        <div class="post" >
-        <form id="FormPost">
-          <span class="nombre-usuario"> <i class="fas fa-user-circle"> </i> ${NombreUser} </span>
+        <div class="post"  >
+        <form id="FormPost" data-uid= "${UID}">
+          <span class="nombre-usuario"> <i class="fas fa-user-circle"> </i> ${Nombre} </span>
           <span class="contenido" id= "contenido">${Descripcion} </span>
           <div id="fecha-lugar">
              <span class="fecha" > ${Fecha}</span>

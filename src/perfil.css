@@ -1,128 +1,155 @@
 /* Estilos del componente perfil.js con css grid*/
-.container{
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.3fr 2fr 0.3fr;
-    grid-gap:0.2rem;
-    grid-template-areas: 
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.3fr 2fr 0.3fr;
+  grid-gap: 0.2rem;
+  grid-template-areas:
     "header header header"
     "section section section"
     "footer footer footer";
-  
-  }
-  header{
-    grid-area: header;
-    
-  }
-  header .menu{
-    display: flex;
-    justify-content: space-between;
-    padding: 11px;
-  }
-  .logo{
-    font-family: Dancing Script;
-    font-size: 20px;
-  
-  }
-  header img{
-    width: 50px;
-    position: relative;
-    cursor: pointer;
-  }
- .enlaces{
- background-color:#fcf3e0;
- display: none;
- position: absolute;
- height: auto;
- width: 25vw;
- top: 20px;
- right: 5px;  
- }
- .setting{
-   width: 100%;
-   height: auto;
-   padding: 0.5em;
-   display: flex;
- }
- a {
-  text-decoration:none;
-  color:inherit
- }
- #configuracion {
+
+}
+
+header {
+  grid-area: header;
+
+}
+
+header .menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 11px;
+}
+
+.logo {
+  font-family: Dancing Script;
+  font-size: 20px;
+
+}
+
+header img {
+  width: 50px;
+  position: relative;
+  cursor: pointer;
+}
+
+.enlaces {
+  background-color: #fcf3e0;
+  display: none;
+  position: absolute;
+  height: auto;
+  width: 25vw;
+  top: 20px;
+  right: 5px;
+}
+
+.setting {
+  width: 100%;
+  height: auto;
+  padding: 0.5em;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: inherit
+}
+
+#configuracion {
   width: 8vw;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   cursor: pointer;
 }
+
 #configuracion img {
   width: 5vw;
 }
- #configuracion:hover .enlaces{
-   display: block;
-  
+
+#configuracion:hover .enlaces {
+  display: block;
+
 }
-.setting:hover{
-background-color: #FFE8B4;
-  }
 
- 
-   .perfil{
-    position: relative;
-    top: 0px;
-    width: 98vw;
-    display: flex;
-    flex-direction: column;
-    align-content: baseline;
-    align-items: center;
-  }
-  section #foto-perfil{
-    width: 130px;
-    height: 130px;
-  }
-  .descripcion{
-    color: black;
-    width: 90vw;
-    padding-top: 10px;
-    font-size: 18px;
-    position: relative;
-    top: 0px;
-    text-align: center;
-   }
-  footer{
-    height: 10vh;
-    width: 100vw;
-    position: fixed;
-    z-index: 100;
-    bottom: 0%;
-    padding: 0%;
-    margin: 0%;
-    background-color: transparent;
-    grid-area: footer;
-  }
-  footer ul{
-    display: inline-flex;
-    justify-content:space-between;
-    width: 100vw;
-    padding-left: 0%;
-    height: 100%;
-    background-color: #FFE8B4;
-    border-top: rgb(212, 212, 212) solid 1px;
-  }
-  footer ul li{
-    margin: 0%;
-    list-style: none;
-    width: 100vw;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  footer ul  :hover {
-    background-color: #FFD575;
-   }
-  
+.setting:hover {
+  background-color: #FFE8B4;
+}
+.perfil{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#editar-perfil {
+  position: absolute;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  padding: 1em;
+}
 
-  
+.subirFoto{
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 2em;
+  background-color: #e9d9cb;
+  align-items: center;
+  height: 30vh;
+  width: 60vw;
+  display: flex;
+}
+
+#foto-perfil {
+  border-radius: 100%;
+  width: 130px;
+  height:  130px;
+ }
+.descripcion {
+  color: black;
+  width: 90vw;
+  padding-top: 10px;
+  font-size: 18px;
+  position: relative;
+  top: 0px;
+  text-align: center;
+}
+
+footer {
+  height: 10vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 100;
+  bottom: 0%;
+  padding: 0%;
+  margin: 0%;
+  background-color: transparent;
+  grid-area: footer;
+}
+
+footer ul {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100vw;
+  padding-left: 0%;
+  height: 100%;
+  background-color: #FFE8B4;
+  border-top: rgb(212, 212, 212) solid 1px;
+}
+
+footer ul li {
+  margin: 0%;
+  list-style: none;
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+footer ul :hover {
+  background-color: #FFD575;
+}

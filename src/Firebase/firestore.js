@@ -1,6 +1,7 @@
 import {PrintCollection} from '../Pages/post.js'
 import {modalEditar} from "../Pages/Update.js";
 
+
 // *********************** Guardando publicaciones a la coleccion ***********************
 export const SavePublicaciones = (publicaciones) => {
 
@@ -10,33 +11,47 @@ export const SavePublicaciones = (publicaciones) => {
         console.error("Error adding document: ", error);
     });
 }
-// *********************** AGREGAR USUARIOS A LA COLECCION ***********************
-export const SaveUser = (user) => {
-    db.collection("usuarios").add({user}).then((docRef) => {
-        console.log("Enviado a la consola firestore ", docRef.id);
-        window.location.hash = '#/profile';
-    }).catch((error) => {
-        console.error("Error adding document: ", error);
+
+// *********************** Accediendo a todos los documentos de la coleccion ******************
+export function MisPublicaciones() {
+
+    const Publicar = document.getElementById("publicaciones");
+    db.collection('publicaciones').where("lugar","==", "bogota").orderBy("fecha", "desc").get().then((querySnapshot) => {
+        
+        Publicar.innerHTML = ``;
+        querySnapshot.forEach((doc) => {
+            let ID = doc.id;
+            let Nombre = doc.data().nombre;
+            let UID =doc.data().uid;
+            let Descripcion = doc.data().descripcion;
+            let Fecha = doc.data().fecha;
+            let Lugar = doc.data().lugar;
+
+            PrintCollection(Publicar, ID, Nombre, UID, Descripcion, Fecha, Lugar);
+
+        });
+        eliminar();
+        editar();
     });
 }
-// *********************** Accediendo a todos los documentos de la coleccion ******************
 
 export function MostrarPublicaciones() {
 
     const Publicar = document.getElementById("publicaciones");
     db.collection('publicaciones').orderBy("fecha", "desc").onSnapshot((querySnapshot) => {
-
+       
         Publicar.innerHTML = ``;
         querySnapshot.forEach((doc) => {
 
             let ID = doc.id;
-            let NombreUser = doc.data().nombre;
+            let Nombre = doc.data().nombre;
+            let UID =doc.data().uid;
             let Descripcion = doc.data().descripcion;
             let Fecha = doc.data().fecha;
             let Lugar = doc.data().lugar;
 
-            PrintCollection(Publicar, ID, NombreUser, Descripcion, Fecha, Lugar);
-            
+            PrintCollection( Publicar, ID, Nombre, UID, Descripcion, Fecha, Lugar);
+
         });
         eliminar();
         editar();
@@ -55,78 +70,49 @@ function eliminar(id) {
         btn.addEventListener("click", async (e) => {
             await eliminarPost(e.target.dataset.id);
         })
-      
+
     })
 }
 
 // *********************** editar los documentos de la coleccion por id ******************
 
 const editarPost = (id) => db.collection("publicaciones").doc(id).get();
-const update = (id, update) => db.collection("publicaciones").doc(id).update(update);
+const update = (id, update) => firebase.firestore().collection("publicaciones").doc(id).update(update).then(() => {
+    console.log("documento editado!");
+    location.reload();
+    const modal = document.getElementById('editar_modal');
+    modal.classList.remove('show');
+})
 
 export function editar(id) {
-    const post= document.getElementById("formPost");
-    const boton = document.getElementById("actualizar");
-    const descripcion = document.getElementById("editContenido");
-    const lugar = document.getElementById("editLugar");
-    
-    
+    const post = document.getElementById("formPost");
+
+
     let btnsEditar = document.querySelectorAll("button.editar");
 
     btnsEditar.forEach((btn) => {
         btn.addEventListener("click", async (e) => {
             modalEditar();
-
+            const boton = document.getElementById("actualizar");
+            const descripcion = document.getElementById("editContenido");
+            const lugar = document.getElementById("editLugar");
+            
             const doc = await editarPost(e.target.dataset.id);
             const data = doc.data();
-           
+            const id = doc.data().id;
             // Data del post traida de firebase
-            id = data.doc;
-            descripcion.value = data.descripcion,
-            lugar.value       = data.lugar,
-            // campo al que se le asignara la data para editar
-
+            let dataDescripcion = data.descripcion;
+            let dataLugar = data.lugar;
+            // asignacion de la data para editar
+            descripcion.value = dataDescripcion;
+            lugar.value = dataLugar;
+            
             // guardando cambios
             boton.addEventListener("click", update(id, {
+                descripcion: descripcion,
+                lugar: lugar,
                 
-                    descripcion: descripcion.value,
-                    lugar: lugar.value 
-                  }))
- 
+            }))
+        })
     })
-})
-}   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// }).then(() => { // console.log("documento editado!");
-//      location.reload();
-// }).catch((error) => {
-//      console.error("Ocurrió algún error al editar el post: ", error);
-// });
+}
