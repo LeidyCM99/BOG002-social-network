@@ -6,7 +6,7 @@ export function modalEditar() {
     texto.innerHTML = ` 
         <form id="form-modal">
         <span class="nombre-usuario">  <i class="fas fa-user-circle"> ${nombre} </i> </span>
-        <input type="text" placeholder="Escribe aqui" class="contenido" id="editContenido">
+        <textarea type="text" placeholder="Escribe aqui"  id="editContenido" value=""> </textarea>
 
         <div id="fecha-lugar">
            <span class="fecha" > 27-05-2021 </span>
@@ -14,7 +14,7 @@ export function modalEditar() {
         </div>
         </form>
         
-           <button type="button" class="btn" id="actualizar"> Actualizar</button>
+           <button type="submit" class="btn" id="actualizar"> Actualizar</button>
            <button type="button"  class="btn" id= "close-post" > <a href="#/release"> Cerrar</a> </button>
            `
 

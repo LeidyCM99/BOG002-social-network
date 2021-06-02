@@ -1,12 +1,14 @@
-export function PrintCollection(Publicar, ID, Nombre, UID, Descripcion, Fecha, Lugar) {
+export function PrintCollection(Publicar, ID, Nombre, UID, Descripcion, Fecha, Foto, Lugar) {
 
     Publicar.innerHTML += `	
+    
         <div class="post"  >
         <form id="FormPost" data-uid= "${UID}">
           <span class="nombre-usuario"> <i class="fas fa-user-circle"> </i> ${Nombre} </span>
           <span class="contenido" id= "contenido">${Descripcion} </span>
+          <div class="adjunto"> <img id="ImagePost" src="${Foto}">  </div> 
           <div id="fecha-lugar">
-             <span class="fecha" > ${Fecha}</span>
+             <span class="fecha" >${Fecha}</span>
              <span class="lugar" id= "lugar"> <img src="./imagenes/Location-1.svg">${Lugar}</span>
           </form>  
           </div>

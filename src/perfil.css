@@ -14,19 +14,29 @@
 
 header {
   grid-area: header;
-
 }
-
 header .menu {
   display: flex;
   justify-content: space-between;
-  padding: 11px;
+  border-bottom: rgba(194, 194, 194, 0.397) 1px solid;
+  justify-content: space-between;
+  display: inline-flex;
+  height: 3em;
+  width: 100vw;
+  position: fixed;
+  top: 0%;
+  z-index: 100;
+  background-color: white;
 }
 
-.logo {
+#logo {
+  width: 30vw;
+  font-weight: bold;
   font-family: Dancing Script;
-  font-size: 20px;
-
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5em;
 }
 
 header img {
@@ -57,18 +67,6 @@ a {
   color: inherit
 }
 
-#configuracion {
-  width: 8vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  cursor: pointer;
-}
-
-#configuracion img {
-  width: 5vw;
-}
-
 #configuracion:hover .enlaces {
   display: block;
 
@@ -78,6 +76,7 @@ a {
   background-color: #FFE8B4;
 }
 .perfil{
+  padding-top: 3em;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -109,47 +108,64 @@ a {
  }
 .descripcion {
   color: black;
-  width: 90vw;
+  width: 40vw;
   padding-top: 10px;
   font-size: 18px;
   position: relative;
   top: 0px;
+  left: 0%;
   text-align: center;
 }
 
-footer {
-  height: 10vh;
-  width: 100vw;
+
+@media  (min-width: 800px){
+  *{
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  .container { 
+  width: 60vw;
+  min-height: 100vh;
   position: fixed;
-  z-index: 100;
-  bottom: 0%;
-  padding: 0%;
-  margin: 0%;
-  background-color: transparent;
-  grid-area: footer;
-}
-
-footer ul {
-  display: inline-flex;
-  justify-content: space-between;
-  width: 100vw;
-  padding-left: 0%;
-  height: 100%;
-  background-color: #FFE8B4;
-  border-top: rgb(212, 212, 212) solid 1px;
-}
-
-footer ul li {
-  margin: 0%;
-  list-style: none;
-  width: 100vw;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-footer ul :hover {
-  background-color: #FFD575;
-}
+  overflow: hidden;
+  margin-left: 20%;
+  border-left: rgba(194, 194, 194, 0.397) 1px solid;
+  border-right: rgba(194, 194, 194, 0.397) 1px solid;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.3fr 2fr 0.3fr;
+    grid-gap: 0.2rem;
+    grid-template-areas:
+      "header header header"
+      "section section section"
+      "footer footer footer";
+  
+  }
+  .perfil{
+    padding-top: 3em;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #editar-perfil {
+    position: absolute;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    padding: 1em;
+  } header .menu {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: rgba(194, 194, 194, 0.397) 1px solid;
+    justify-content: space-between;
+    display: inline-flex;
+    height: 3em;
+    width: 60vw;
+    position: fixed;
+    top: 0%;
+    z-index: 100;
+    background-color: white;
+  }}

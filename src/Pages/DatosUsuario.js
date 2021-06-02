@@ -1,9 +1,12 @@
-export function FormularioPerfilDeUsuario() {
+
+// import { SubirStorage } from "../Firebase/Storage.js";
+
+ export function FormularioPerfilDeUsuario() {
     const html = `
     <section id= "editar-perfil">
       <div class="subirFoto">
-	   <img src= " ">
-	   <input type='file' id='my-file'> </input>
+       <img  class="myimg" id="foto-perfil">
+	   <input type="file" id="my-file"> 
        </div>
       
     <form id="formulario">
@@ -21,30 +24,32 @@ export function FormularioPerfilDeUsuario() {
 
 export function EditarPerfil() {
     const InfoPerfil = document.getElementById('formulario');
-    InfoPerfil.addEventListener('submit', async (event) => {
+    InfoPerfil.addEventListener('submit',  (event) => {
 
         event.preventDefault();
-        let fileImage = document.getElementById('my-file').src;
+        const file = document.getElementById("my-file").files[0];
+        const nameFile = file.name;
+      
+        //  SubirStorage(nameFile ,file, img );
+        
+       let refstorage = storage.child(nameFile).put(file);
+        refstorage.on(firebase.storage.TaskEvent.STATE_CHANGED,(snapshot)=>{
+          console.log("cambio")
+        })
+        refstorage.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+          console.log('File available at', downloadURL)
+          const img = document.querySelector(".myimg");
+                img.src = downloadURL;
+        })
         let nombre = document.getElementById('name').value;
         let descripcion = document.getElementById('descripcion').value;
 
         // Actualizar perfil del usuario.
-        await firebase.auth().currentUser.updateProfile({displayName: nombre, photoURL: fileImage}).then(() => {
-			window.location.hash = '#/profile'
-        }).catch((error) => {
-            console.log("error")
+        firebase.auth().currentUser.updateProfile({displayName: nombre})
+        .then(() => {window.location.hash = '#/profile'
+        })
+        .catch((error) => {
+            console.log(error)
         });
-
-        const user = {
-            fileImage,
-            nombre,
-            descripcion
-        }
-
     });
-}
-
-export function cargarImagen() {
-    const file = document.getElementById('my-file')[0];
-    console.log(file);
 }

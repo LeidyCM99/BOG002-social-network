@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 
   #root {
@@ -21,19 +22,17 @@
     background-image: url("./imagenes/Fondo.jpg");
   }
 
-  main .fondo h1 {
+  .Titulo {
     font-family: 'Dancing Script', cursive;
     color: white;
     font-size: 64px;
     position: relative;
-    top: 1em;
     left: 20%;
     width: 60%;
-
+    top:1em
   }
 
   .subtitulo {
-    font-family: 'Poly', serif;
     color: white;
     font-weight: lighter;
     font-size: 1rem;
@@ -41,20 +40,17 @@
     top: 3em;
     left: 50%;
   }
-
   p {
     width: 90%;
-    font-family: 'Poly', serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
     font-weight: lighter;
     font-size: 22px;
     margin: 0%;
     position: relative;
-    left: 0.3em;
+    /* left: 3em; */
     top: 5em;
-
   }
-
   .btnHome {
     padding: 10px;
     width: 188px;
@@ -107,7 +103,7 @@
   }
 
   /* formularios de registro e inicio de sesion */
-  .formulario {
+  #formulario {
     font-family: 'Dancing Script', cursive;
     display: flex;
     flex-direction: column;
@@ -146,7 +142,7 @@
     border-radius: 10px;
     margin: 0.9em;
     font-size: 17px;
-    font-family: 'Poly';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 
   .input img {
@@ -221,6 +217,7 @@
     background-color: rgba(0, 0, 0, 0.534);
     height: 100vh;
     width: 100vw;
+    z-index: 1000;
     transition: opacity 0.3s ease;
   }
 
@@ -236,8 +233,8 @@
   }
 #form-modal{
   padding: 1em 0.5em;
-  width: 70vw;
-  height: 35vh;
+  width: 75vw;
+  height: auto;
   background-color: #b5c9b7;
 }
   .modal {
@@ -291,7 +288,6 @@
     color: black !important;
     position: relative;
   }
-
   #btn_signUp {
     background-color: #8adb94;
     margin-top: 1em;
@@ -299,33 +295,33 @@
     position: relative;
     top: 1.5em
   }
-
   #titulo-login {
-    position: relative;
-    top: 0%
+    font-size: 3rem;
+    font-family: 'Dancing Script', cursive;
+    color: white;
   }
-
+  #titulo-registro{
+    font-size: 3rem;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+  }
   #usuario {
     width: 30vw;
     height: 20vh;
     position: relative;
     top: 0.5em;
     margin-bottom: 0.5em;
-    /* left:7.5em; */
   }
-
   #usuario img {
     width: 130px;
     height: 130px;
-
   }
-
   /* INICIO DENTRO DE LA PAGINA  */
   #encabezado {
     justify-content: space-between;
     display: inline-flex;
     height: 3em;
-    width: 100vw;
+    width: 97vw;
     position: fixed;
     top: 0%;
     z-index: 100;
@@ -405,7 +401,7 @@
   nav ul li a {
     text-decoration: none;
     color: black;
-    font-family: poly;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 20px;
     text-transform: uppercase;
   }
@@ -414,9 +410,6 @@
     background-color: #FFD575;
   }
 
-  nav>ul>li :visited {
-    background-color: #fca863;
-  }
 
   /* para publicar */
   .area-publicar {
@@ -426,17 +419,26 @@
     display: inline-flex;
     align-items: center;
     flex-wrap: wrap;
-    height: 28vh;
+    height: auto;
+    padding-bottom: 2em;
   }
+.adjunto{
+  display: flex;
+  justify-content: center;
 
-  .insertar-publicacion {
+}
+
+.insertar-publicacion {
     width: 70vw;
-    height: 20vh;
+    height: auto;
     left: 0em;
     top: 0em;
     position: relative;
   }
-
+#ImagePost{
+  max-width: 80vw;
+  max-height: 100vh;
+}
   .area-lugar {
     position: relative;
     top: 0%;
@@ -472,8 +474,6 @@
 .contador{
   color: bl;
 }
-
-
   #foto-usuario {
     width: 50px;
     height: 50px;
@@ -520,13 +520,17 @@
     width: 90vw;
     height: 20px;
     color: black;
-    font-family: poly;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
     left: 1em;
     top: 1px; 
     display: flex;
   }
-
+#editContenido{
+  width: 100%;
+  height:  auto;
+  margin-top: 1em;
+}
   .contenido {
     top: 0.5em;
     margin: 0.5em;
@@ -544,7 +548,8 @@
   #fecha-lugar {
     display: inline-flex;
     position: relative;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: baseline;
     top: 0.5em;
     left: 1em;
     width: 80vw;
@@ -573,7 +578,7 @@
     width: 70vw;
     height: 10vh;
     max-height: auto;
-    font-family: poly;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     border-radius: 5px;
     border: rgb(187, 186, 186) solid 1px;
     padding: 0.5em;
@@ -583,10 +588,21 @@
     flex-wrap: wrap;
     resize: none;
   }
-
+#submit-publicar{
+  position: relative;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+#configuracion {
+  width: 3vw;
+  display: flex;
+  cursor: pointer;
+}
+#configuracion img {
+  width: 6vw;
+}
   #publicar-btn {
-    position: relative;
-    top: 0em;
     width: 25vw;
     height: 5vh;
     padding: 0.5em;
