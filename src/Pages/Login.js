@@ -4,10 +4,8 @@ export function FormularioDeIngreso() {
 
     const html = `
       <div class='fondo'>
-  
+      <h1 id="titulo-login"> Login </h1>
       <form id="Form-login"> 
-
-        <h1 id="titulo-login"> Login </h1>
         <div id="usuario"> <img src="./imagenes/usuario.png"> </div>
 
         <div class="input" id="Email">
@@ -90,8 +88,8 @@ export function DatosDeLogin() {
 
             const Email = document.getElementById("EmailUser").value;
             const Password = document.getElementById("PasswordUser").value;
-            localStorage.setItem("Email",  document.getElementById("EmailUser").value);
-            localStorage.setItem("Password" , document.getElementById("PasswordUser").value);
+            sessionStorage.setItem("Email",  document.getElementById("EmailUser").value);
+            sessionStorage.setItem("Password" , document.getElementById("PasswordUser").value);
             
             LoginUsuario(Email, Password)
         } else {

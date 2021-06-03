@@ -1,5 +1,5 @@
 export function home() {
-  
+
     const html = `
    
        <div class="fondo">
@@ -20,30 +20,25 @@ export function home() {
          </div>
         `;
     return html;
-         
+
 }
 
 // capturamos el click sobre el boton crear cuenta con Google
-  export function BotondeCrearCuentaconGoogle () {
-  
-    const RegistroConGoogle = document.getElementById('signUpGoogle');
-    RegistroConGoogle.addEventListener('click',() =>{
-      const provider = new firebase.auth.GoogleAuthProvider();
-    
-      firebase.auth().signInWithPopup(provider)
-      .then((result) => {
-        window.location.hash ='#/release';
+export function BotondeCrearCuentaconGoogle() {
 
-      
-        // var user = result.user;
-      }).catch((error) => {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        var email = error.email;
-        var credential = error.credential;
-       
-      });
-    
+    const RegistroConGoogle = document.getElementById('signUpGoogle');
+    RegistroConGoogle.addEventListener('click', () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        firebase.auth().signInWithPopup(provider).then((result) => {
+            window.location.hash = '#/release'
+            console.log(result.user)
+        }).catch((error) => { // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            var email = error.email;
+            var credential = error.credential;
+        });
+
     })
-  }
+}

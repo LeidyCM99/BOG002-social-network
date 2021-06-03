@@ -1,20 +1,19 @@
 /* Estilos del componente perfil.js con css grid*/
 .container {
   display: grid;
-  height: 100vh;
+  height: auto;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.3fr 2fr 0.3fr;
+  grid-template-rows: 0.1fr 2fr 0.3fr;
   grid-gap: 0.2rem;
   grid-template-areas:
     "header header header"
     "section section section"
     "footer footer footer";
-
 }
-
 header {
   grid-area: header;
 }
+
 header .menu {
   display: flex;
   justify-content: space-between;
@@ -75,13 +74,14 @@ a {
 .setting:hover {
   background-color: #FFE8B4;
 }
-.perfil{
-  padding-top: 3em;
+
+.perfil {
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 #editar-perfil {
   position: absolute;
   flex-direction: column;
@@ -89,23 +89,28 @@ a {
   height: 100vh;
   padding: 1em;
 }
-
-.subirFoto{
+#editar-perfil {
+  position: absolute;
+  display: flex;
+  align-items: center;
   flex-direction: column;
-  align-items: flex-end;
-  margin-bottom: 2em;
-  background-color: #e9d9cb;
+  width: 100vw;
+  height: 100vh;
+  padding: 1em;
+}
+.subirFoto {
+  background-color: #cecece;
   align-items: center;
   height: 30vh;
   width: 60vw;
-  display: flex;
+  display: flex;   
+}
+#foto-perfil{
+  max-width: 30vw;
+  max-height: 30vw;
+  
 }
 
-#foto-perfil {
-  border-radius: 100%;
-  width: 130px;
-  height:  130px;
- }
 .descripcion {
   color: black;
   width: 40vw;
@@ -118,45 +123,57 @@ a {
 }
 
 
-@media  (min-width: 800px){
-  *{
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+@media (min-width: 800px) {
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
-  .container { 
-  width: 60vw;
-  min-height: 100vh;
-  position: fixed;
-  overflow: hidden;
-  margin-left: 20%;
-  border-left: rgba(194, 194, 194, 0.397) 1px solid;
-  border-right: rgba(194, 194, 194, 0.397) 1px solid;
+
+  .container {
+    width: 60vw;
+    height: auto;
+    overflow: hidden;
+    margin-left: 20%;
+    border-left: rgba(194, 194, 194, 0.397) 1px solid;
+    border-right: rgba(194, 194, 194, 0.397) 1px solid;
     display: grid;
-    height: 100vh;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.3fr 2fr 0.3fr;
+    grid-template-rows: 0.05fr 2fr 0.05fr;
     grid-gap: 0.2rem;
     grid-template-areas:
       "header header header"
       "section section section"
       "footer footer footer";
-  
   }
-  .perfil{
-    padding-top: 3em;
+  .perfil {
     width: 60vw;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   #editar-perfil {
     position: absolute;
+    display: flex;
+    align-items: center;
     flex-direction: column;
     width: 100vw;
     height: 100vh;
     padding: 1em;
-  } header .menu {
+  }
+  .subirFoto {
+    background-color: #cecece;
+    align-items: center;
+    height: 30vh;
+    width: 60vw;
+    display: flex;   
+  }
+  #foto-perfil{
+    max-width: 20vw;
+    max-height: 25vw;
+  }  
+  header .menu {
     display: flex;
     justify-content: space-between;
     border-bottom: rgba(194, 194, 194, 0.397) 1px solid;
@@ -168,4 +185,5 @@ a {
     top: 0%;
     z-index: 100;
     background-color: white;
-  }}
+  }
+}

@@ -1,8 +1,8 @@
+import {Salir} from '../Firebase/firebaseAuth.js';
 
 export function perfil(){
-
+	let user = firebase.auth().currentUser
     let html= `
-	
 	<div class="container">
 	 <header>
 	   <div class="menu">
@@ -22,11 +22,11 @@ export function perfil(){
 	 <li><a href="#/search"><img src="./imagenes/Search.svg"></a>Buscar </li>
 	</ul>
    </nav>
-      <section>
+      <section id="section-perfil">
 	  <div id='perfil' class="perfil">
-	  <img class="myimg" id="foto-perfil" src="" >
-	  <h1 id="Nombre-de-usuario"></h1>
-	  <h2 id="nombre-completo"></h2>
+	  <img class="myimg" id="foto-perfil" src="${user.photoURL}" >
+	  <h1 id="Nombre-de-usuario"> ${user.displayName}</h1>
+	  
 	  <p class="descripcion"> Descripcion del usuario</p>
 	  </div>
 	  <div id="publicaciones"></div>
@@ -39,15 +39,15 @@ export function perfil(){
   }
 
 export function name() {
-    //    obteniendo valores
+
     let Nombre_usuario = document.getElementById("Nombre-de-usuario");
     let descripcion = document.getElementsByClassName("descripcion");
-
-    let user = firebase.auth().currentUser.update();
-    Nombre_usuario.innerHTML = user.displayName;
 }
 
-
+export function CerrarSesion() {
+    let BotonCerrar = document.getElementById('cerrar-sesion');
+    BotonCerrar.addEventListener('click', Salir);
+}
 	
 
 	

@@ -19,7 +19,7 @@ export function modalErrorLogin(firebaseError) {
     const login_modal = document.getElementById('login_modal');
     const close = document.getElementById('close-login');
     
-    if ( firebaseError.code=="auth/user-not-found" || "auth/wrong-password") {
+    if ( firebaseError.code== "auth/user-not-found" || "auth/wrong-password") {
         login_modal.classList.add('show'); 
     }
     

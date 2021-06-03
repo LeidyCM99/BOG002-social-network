@@ -52,14 +52,14 @@
     top: 5em;
   }
   .btnHome {
-    padding: 10px;
+    padding: 9px;
     width: 188px;
+    font-size: 17px;
     border-radius: 20px;
     border-style: none;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-transform: uppercase;
     font-weight: normal;
-    font-size: 1rem;
     position: relative;
     top: -3em;
     margin-top: 1.5em;
@@ -96,7 +96,6 @@
     text-decoration: none;
     color: white;
   }
-
   .btn a {
     text-decoration: none;
     color: white;
@@ -121,16 +120,14 @@
     height: auto;
     align-items: center;
     position: relative;
-    top: 5em;
+    
   }
-
   input {
     border: none;
     background-color: transparent;
     outline: none;
     width: 80%;
   }
-
   .input {
     background: white;
     font-family: 'Dancing Script', cursive;
@@ -138,7 +135,7 @@
     display: flex;
     justify-content: space-evenly;
     height: 2.5em;
-    width: 70%;
+    width: 60%;
     border-radius: 10px;
     margin: 0.9em;
     font-size: 17px;
@@ -170,7 +167,7 @@
   }
 
   #login {
-    background-color: #3d3d3deb;
+    background-color: #2e2e2e;
     color: rgb(255, 255, 255);
     position: relative;
     top: 2em;
@@ -178,30 +175,26 @@
   }
 
   #signUpGoogle {
-    background-color: transparent;
-    color: wheat;
+    display: flex;
+    align-items: center;
+    background-color: rgb(233, 158, 73);
+    color: rgb(255, 255, 255);
     display: flex;
     justify-content: space-around;
-    font-size: 14px;
+    font-size: 15px;
+    padding: 8px;
+    height: 35px;
   }
-
   .Bienvenida {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 20vh;
+    height: 50vh;
     position: relative;
-    top: 12em;
+    top: 9em;
   }
-
-  .Bienvenida img {
-    background: white;
-    border-radius: 50%;
-    border: white solid 10px;
-  }
-
   #loginPpal {
-    background-color: #27242479;
+    background-color: #272424f5;
     color: rgb(255, 255, 255);
   }
 
@@ -291,15 +284,20 @@
   #btn_signUp {
     background-color: #8adb94;
     margin-top: 1em;
-    color: black !important;
+    color: black ;
     position: relative;
     top: 1.5em
   }
   #titulo-login {
+    top: 0.5em;
+    position: relative;
+    left: 35%;
+    height: 20vh;
     font-size: 3rem;
     font-family: 'Dancing Script', cursive;
     color: white;
   }
+
   #titulo-registro{
     font-size: 3rem;
     font-family: 'Dancing Script', cursive;
@@ -310,7 +308,7 @@
     height: 20vh;
     position: relative;
     top: 0.5em;
-    margin-bottom: 0.5em;
+    margin-bottom: 2em;
   }
   #usuario img {
     width: 130px;
@@ -414,7 +412,7 @@
   /* para publicar */
   .area-publicar {
     position: relative;
-    top: 1.5em;
+    top: 2.5em;
     width: 90vw;
     display: inline-flex;
     align-items: center;
@@ -442,14 +440,14 @@
   .area-lugar {
     position: relative;
     top: 0%;
-    width: 50vw;
-    display: inline-flex;
+    width: 70vw;
+    height: 15px;
     left: 1em;
   }
 
   #input-lugar {
     position: relative;
-    width: 50vw;
+    width: 30vw;
     border: rgb(219, 219, 219) solid 1px;
     border-radius: 5px;
   }
@@ -525,6 +523,9 @@
     left: 1em;
     top: 1px; 
     display: flex;
+  }
+  .nombre-usuario i {
+    padding-right: 0.5em;
   }
 #editContenido{
   width: 100%;
@@ -635,6 +636,29 @@
     height: 5vh;
     margin-left: 1em;
   }
-
-
+  #file {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    }
+   
+   #file-label {
+     font-size: 20px;
+     border-radius: 10px;
+    color: #fff;
+    background-color: #0e0e0e;
+    display: inline-block;
+    transition: all .5s;
+    cursor: pointer;
+    width: 13vw;
+    height: 4.3vh;
+    text-align: center;
+    }
 }
+#carga{
+  display: none;
+}
+

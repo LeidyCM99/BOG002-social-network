@@ -18,7 +18,7 @@ export const SavePublicaciones = (publicaciones) => {
 export function MostrarPublicaciones() {
 
     const Publicar = document.getElementById("publicaciones");
-    db.collection('publicaciones').orderBy("fecha", "desc").onSnapshot((querySnapshot) => {
+    db.collection('publicaciones').orderBy("fecha","desc").onSnapshot((querySnapshot) => {
 
         Publicar.innerHTML = ``;
         querySnapshot.forEach((doc) => {
@@ -55,15 +55,13 @@ function eliminar(id) {
     })
 }
 
-// *********************** editar los documentos de la coleccion por id ******************
+//  *********************** editar los documentos de la coleccion por id ******************
+// funcion editPost() me trae la los datos de la coleccion la cual uso para editar y actualizar con la otra funcion editar()
 
 const editarPost = (id) => db.collection("publicaciones").doc(id).get();
-const update = (id, update, e) => {
-    e.preventDefault();
-    console.log(id, update)
-    return firebase.firestore().collection("publicaciones").doc(id).update(update).then(() => {
-        console.log("documento editado!");
+const update = (id, updatePost) => {
 
+    return firebase.firestore().collection("publicaciones").doc(id).update(updatePost).then(() => {
         const modal = document.getElementById('editar_modal');
         modal.classList.remove('show');
     })
@@ -84,7 +82,7 @@ export function editar(id) {
             const doc = await editarPost(e.target.dataset.id);
             const data = doc.data();
             const id = doc.id;
-            console.log("id", id)
+            
             // Data del post traida de firebase
             let dataDescripcion = data.descripcion;
             let dataLugar = data.lugar;
@@ -95,9 +93,9 @@ export function editar(id) {
             // guardando cambios
             boton.addEventListener("click", () => {
                 update(id, {
-                    descripcion: dataDescripcion,
-                    lugar: dataLugar
-                }, e)
+                    descripcion: descripcion.value,
+                    lugar: lugar.value 
+                })
             })
         })
     })

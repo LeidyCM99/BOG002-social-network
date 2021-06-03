@@ -1,4 +1,3 @@
-import {Salir} from '../Firebase/firebaseAuth.js';
 import {SavePublicaciones} from '../Firebase/firestore.js'
 
 export function inicio() {
@@ -7,9 +6,6 @@ export function inicio() {
     <section id="pagina">
 	<div id="encabezado">
 		<div id="logo"> FoodFans </div>
-		<div id="configuracion"><img src="./imagenes/Setting.svg">
-
-		</div> 
 	</div>
 
 	<nav>
@@ -20,23 +16,25 @@ export function inicio() {
 		</ul>
 	</nav>
 
-	<div id="menu">
-		<span class= "setting">Cambiar nombre</span>
-		<span class= "setting" id="cerrar-sesion">Cerra sesion</span>
-	</div>
 	<form class="area-publicar">
 	<img src="./imagenes/usuario.png" id="foto-usuario">
 		<div class ="insertar-publicacion">
-			<input type="text" maxlength="250" minlength="2"  required class="publicar" placeholder=" ¿Que tienes para contar?">  
+			<textarea type="text" maxlength="250" minlength="2"  required class="publicar" placeholder= "¿Que tienes para contar?"></textarea>
+			<progress value="0" max="100" id="carga"> 0% </progress>
+				<label from="file" id="file-label"> 
+			 	 	+ <i class="fas fa-image"></i>
+					<input type='file' name="file" id='file'>  </file>
+				</label>
 			<span class="area-lugar">
 					<img src="./imagenes/Location-1.svg">
 					<input id="input-lugar" type="text" maxlength="250" minlength="2"  required placeholder="¡Estoy aqui!">
 				</span>
-				<input type='file' id='file'> </input>
+
+
 		</div>
 	</form>
 	<div id="submit-publicar">
-		<button type="submit" class="btn" id="publicar-btn" > Publicar </button> 
+		<button type="button" class="btn" id="publicar-btn" > Publicar </button> 
 	</div>
 	<div id="publicaciones">	
 	</div>
@@ -47,49 +45,62 @@ export function inicio() {
 
 
 // obtener valores para publicar
-
-
 export async function ParaPublicar() {
 
+    const fileP = document.getElementById("file");
+    const carga = document.getElementById("carga");
 
-    const BtnPublicar = document.getElementById("publicar-btn")
-    await BtnPublicar.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        const fileP = document.getElementById("file").files[0];
-        const nameFileP = fileP.name;
-		
-        let rstorage = storage.child(nameFileP).put(fileP);
-            rstorage.on(firebase.storage.TaskEvent.STATE_CHANGED, (snapshot) => {
-            console.log("cambio de estado")
-        })
-		const descripcion   = document.querySelector(".publicar").value;
-		const lugar  = document.querySelector("#input-lugar").value;
-        rstorage.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-            
-			const user   = firebase.auth().currentUser; // esta variable se usara en el documento firebaseauth
-			const nombre = user.displayName;
-			const uid    = user.uid;
-			const foto   = downloadURL;
-			const objectoAccion = new Date();
-			const fecha  = objectoAccion.getDate() + "-" + 0 + (objectoAccion.getMonth() + 1) + "-" + objectoAccion.getFullYear() + "  " + objectoAccion.getHours() + ":" + objectoAccion.getMinutes();
-			
-			const publicaciones = {
-				nombre,
-				uid,
-				descripcion,
-				foto,
-				fecha,
-				lugar
+    fileP.addEventListener("change", function (e) {
+        console.log(e)
+        let file = e.target.files[0];
+        let StorageRef = firebase.storage().ref('album/' + file.name)
+        let subir = StorageRef.put(file);
+        subir.on("state_change", (snapshot) => {
+			carga.style="display:block"
+            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            carga.value = progress;
+        }, function (error) {
+			switch (error.code) {
+			  case 'storage/unauthorized':
+				  alert("No autorizado")
+				break;
+			  case 'storage/canceled':
+				alert(" Carga cancelada")
+				break;
+			  case 'storage/unknown':
+				alert("Imagen desconocida")
+				break;
 			}
-			
-			SavePublicaciones(publicaciones);  
-        })
-        document.querySelector(".area-publicar").reset();
-    })
+		  },  ()=> {
+            const BtnPublicar = document.getElementById("publicar-btn")
+            		 BtnPublicar.addEventListener("click", () => {
 
+                const descripcion = document.querySelector(".publicar").value;
+                const lugar = document.querySelector("#input-lugar").value;
+                subir.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+
+                    const user = auth.currentUser; // esta variable se usara en el documento firebaseauth
+                    const nombre = user.displayName;
+                    const uid = user.uid;
+                    const foto = downloadURL;
+                    const objectoAccion = new Date();
+                    const fecha = objectoAccion.getDate() + "-" + 0 + (objectoAccion.getMonth() + 1) + "-" + objectoAccion.getFullYear() + "  " + objectoAccion.getHours() + ":" + objectoAccion.getMinutes();
+
+                    const publicaciones = {
+                        nombre,
+                        uid,
+                        descripcion,
+                        foto,
+                        fecha,
+                        lugar
+                    }
+
+                    SavePublicaciones(publicaciones);
+                })
+                document.querySelector(".area-publicar").reset();
+				carga.style="display:none"
+            })
+        })
+    })
 }
-export function CerrarSesion() {
-    let BotonCerrar = document.getElementById('cerrar-sesion');
-    BotonCerrar.addEventListener('click', Salir);
-}
+

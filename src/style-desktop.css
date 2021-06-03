@@ -1,22 +1,22 @@
-/* ************************************************ DESKTOP *********************************************************************/
 @media  (min-width: 800px){
     *{
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
-    main .fondo .Titulo{
+    .fondo .Titulo{
     color: rgb(8, 8, 8);
     font-family: 'Dancing Script', cursive;
     font-size: 69px;
     position: relative;
     padding: 0.1em;
-    top:1em;
+    height: 15vh;
+    top:0.5em;
     left: 10%;
     width: 260px;
     background-color: #FFD575;
     }
-    main .fondo h1{
+    .fondo h1{
     color: rgb(255, 255, 255);
     font-family: 'Dancing Script', cursive;
     font-size: 69px;
@@ -64,20 +64,18 @@
     border: white solid 10px;
     }
     .btnHome{
-    padding: 10px;
-    width: 188px;
-    height: 45px;
+    padding: 7px;
+    width: 200px;
     border-radius: 20px;
     border-style: none;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-transform: uppercase;
-    font-weight:normal;
-    font-size: 1rem;
+    font-size: 0.8rem;
     position: relative;
     top: 1em;  
-    margin-top: 2em;
+    margin-top: 1em;
     transition: transform 250ms;
     }
+
     .btn{
     margin-top: 1em;
     padding: 1px;
@@ -110,8 +108,6 @@
     text-decoration:none;
     color: white;
     }
- 
-    
     #close{
     background-color: #3233328c;
     margin-top: 1em;
@@ -119,7 +115,7 @@
     position: relative;
     top:2em
     }
-    main .fondo{
+    .fondo{
     background-image: url("./imagenes/Fondoweb.jpg");
     background-size: cover;
     background-attachment: fixed;
@@ -137,16 +133,12 @@
     background-color: #8adb94;
     color: black;   
     }
-
     #signUpGoogle{
-    background-color: transparent;
     color: rgb(255, 255, 255);
+    background-color: rgb(233, 158, 73);
     display: flex;
-    justify-content: space-around;
-    font-size: 14px;
+    align-items: center;
     }
-    
-    
     .container_modal {
     display: flex;
     background-color: rgba(0, 0, 0, 0.3);
@@ -156,7 +148,6 @@
     pointer-events: none;
     opacity: 0;  
     top: 0;
-    color: black !important;
     left: 0;
     background-color: rgba(0, 0, 0, 0.534);
     height: 100vh;
@@ -205,13 +196,13 @@
     /* PAGINA DE LOGIN  */
     #titulo-login{
     position: relative;
-    top:-0.5em;
-    left:0.5em;
-    /* background-color:black; */
-    width:15vw;
+    top: 0em;
+    left:35%;
+    width:35vw;
+    height: 25vh;
     font-family: 'Dancing Script', cursive;
-
-    }    
+    } 
+     
     #Form-login{
     font-family: 'Dancing Script', cursive;
     display: flex;
@@ -219,29 +210,30 @@
     height: auto;
     align-items: center;
     position: relative;
-    top: 2.5em;
-    /* background-color: white; */
+    top: 0em;
+    height: 60vh;
+    left: 30%;
+    width: 33vw;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.459);
     }
     #login{
     background-color: #3d3d3deb;
     color: wheat;
     position: relative;
-    top: 1em;
+    top: -1em;
     }     
     #btn_login a{
     background-color: #8adb94;
     margin-top: 1em;
     color:black ;
-    position: relative;
-    top:2em
-            }
+    }
     input{
     border: none;
     background-color: transparent;
     outline: none;
     width:70%
     }
-
     .input{
     background: white;
     font-family: 'Dancing Script', cursive;
@@ -249,13 +241,11 @@
     display: flex;
     justify-content: space-evenly;
     height: 2.5em;
-    width: 250px;
+    width: 20vw;
     border-radius: 10px;
     margin: 0.9em;
     font-size: 17px;
-    font-family: 'Poly';
     transition: transform 250ms; }
-
     .input:hover{
     transform: scale(1.2);}
     .input img{
@@ -287,16 +277,6 @@
   position:relative;
   top:-1em;  
 }
-#foto-usuario{
-    width: 50px;
-    height: 50px;
-    align-self: stretch;
-    margin-top: 2em;
-    margin-right: 0.5em; 
-    margin-left: 0.5em; 
-    position: relative;
-    display: inline-flex;
-  }
    /* INICIO DENTRO DE LA PAGINA  */
    #root{
      justify-content: center;
@@ -316,7 +296,7 @@
     justify-content: space-between;
     display: inline-flex;
     height: 3em;
-    width: 59.5vw;
+    width: 60vw;
     position: fixed;
     top: 0%;
     z-index: 100;
@@ -404,16 +384,16 @@
   /* para publicar */
   .area-publicar {
     position: relative;
-    top: 2em;
-    width: 60vw;
+    padding-top: 1em;
+    width: 55vw;
     display: inline-flex;
     align-items: center;
-    height: 28vh;
+    height: 40vh;
   }
 
   .insertar-publicacion {
-    width: 60vw;
-     height: 30vh;
+    width: 50vw;
+    height: auto;
   }
   .area-lugar {
     position: relative;
@@ -546,17 +526,14 @@
   }
 
   .publicar {
-    margin-top: 2em;
-    width: 50vw;
+    width: 48vw;
     height: 10vh;
     max-height: auto;
-    font-family: poly;
     border-radius: 5px;
     border: rgb(187, 186, 186) solid 1px;
     padding: 0.5em;
     outline: none;
     background-color: white;
-    overflow: visible;
     flex-wrap: wrap;
     resize: none;
   }
@@ -606,7 +583,26 @@
     max-width: 90vw;
     max-height: 110vh;
   }
-
+  #file {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    }
+   
+   #file-label {
+     font-size: 20px;
+     border-radius: 10px;
+    color: #fff;
+    background-color: #0e0e0e;
+    display: inline-block;
+    cursor: pointer;
+    width: 7vw;
+    height: 6vh;
+    text-align: center;
+    }
 }
     
     

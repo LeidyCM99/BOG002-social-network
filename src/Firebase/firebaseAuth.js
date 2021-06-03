@@ -6,10 +6,11 @@ export const autenticacionUsuario = (email, password, Name) => {
  
     auth.createUserWithEmailAndPassword(email, password).then((result) => { // Signed in
         window.location.hash = '#/release'
-        return result.user.updateProfile({displayName: Name}).catch((error) => {
-            modalError(error);
-        });
-    })
+        return result.user.updateProfile({displayName: Name})
+        
+    }).catch((error) => {
+        modalError(error);
+    });
 }
 
 // *****************  ingresando usuario  ******************
