@@ -6,14 +6,16 @@
     }
     .fondo .Titulo{
     color: rgb(8, 8, 8);
-    font-family: 'Dancing Script', cursive;
     font-size: 69px;
     position: relative;
-    padding: 0.1em;
-    height: 15vh;
+    padding-right: 0.2em;
+    height: 20vh;
     top:0.5em;
     left: 10%;
-    width: 260px;
+    width: 235px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
     background-color: #FFD575;
     }
     .fondo h1{
@@ -21,7 +23,6 @@
     font-family: 'Dancing Script', cursive;
     font-size: 69px;
     position: relative;
-    top:1em;
     left: 10%;
     width: 50vmax;
     }
@@ -30,10 +31,6 @@
     color: rgb(22, 21, 21);
     font-weight: lighter;
     font-size: 1rem;
-    position: relative;
-    top: 2.8em;
-    left: 20%;
-    width: 10em;
     }
      p{
     width: 10em;
@@ -65,6 +62,7 @@
     }
     .btnHome{
     padding: 7px;
+	height:7vh ;
     width: 200px;
     border-radius: 20px;
     border-style: none;
@@ -88,7 +86,6 @@
     font-weight:normal;
     font-size: 1.1rem;
     position: relative;
-    top: 2em;
     cursor: pointer;
     transition: transform 250ms;
     }
@@ -167,8 +164,7 @@
     }
     .modal {
     background-color: #fff;
-    width: 80vw;
-    max-width: 100%;
+    width: 50vw;
     padding: 30px 50px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -176,22 +172,22 @@
     }
     #editContenido{
       height: auto;
-      width: 60vw;
-      resize: none;
-      background-color: #fcfcfca8;
+      width: 50vw;
+      resize: none; 
+	  outline: none
     }
     #actualizar, #close-post{
       width: 15vw;
-      background-color:#6cbe87;
+      background-color:#7cc795;
       top: 0%;
-      height: 5vh;
       font-family: inherit;
       font-size: 15px;
       color: white;
+	  margin-left: 1em;
     }
-    #loginPpal{
+    #loginPpal, #close-post{
     background-color: #3d3d3dc7;
-    color: wheat;
+    color: rgb(255, 255, 255);
     }
     /* PAGINA DE LOGIN  */
     #titulo-login{
@@ -211,7 +207,7 @@
     align-items: center;
     position: relative;
     top: 0em;
-    height: 60vh;
+    height: 70vh;
     left: 30%;
     width: 33vw;
     border-radius: 10px;
@@ -219,9 +215,9 @@
     }
     #login{
     background-color: #3d3d3deb;
-    color: wheat;
-    position: relative;
-    top: -1em;
+    color: rgb(255, 255, 255);
+	width: 13vw;
+	font-size: 15px;
     }     
     #btn_login a{
     background-color: #8adb94;
@@ -236,7 +232,6 @@
     }
     .input{
     background: white;
-    font-family: 'Dancing Script', cursive;
     color: rgb(10, 9, 9);
     display: flex;
     justify-content: space-evenly;
@@ -249,16 +244,16 @@
     .input:hover{
     transform: scale(1.2);}
     .input img{
-    height: 1.7em;
+    margin-top: 0.5em;
+    height: 1.2em;
     }
-
     #usuario img{
     position: relative;
     display: flex;
     justify-content: center;
-    top:0em;
-    width: 150px;
-    height: 150px;
+    top:0.5em;
+    width: 130px;
+    height: 130px;
     }
     /* registro usuario */
 #formulario{
@@ -268,14 +263,20 @@
     height: auto;
     align-items: center;
     position: relative;
-    top: 3.5em;
+    height: 65vh;
+    left: 30%;
+    width: 33vw;
+    border-radius: 10px;
+	padding-top: 1em;
+    background-color: rgba(255, 255, 255, 0.301);
 }
 #Register{
     background-color:#6cbe87;
 }
 #titulo-registro{
   position:relative;
-  top:-1em;  
+  left: 30%;
+  margin-bottom: 0.5em;
 }
    /* INICIO DENTRO DE LA PAGINA  */
    #root{
@@ -544,9 +545,7 @@
 }
   #publicar-btn {
     position: relative;
-    width: 15vw;
-    top: 0%;
-    height: 5vh;
+    width: 12vw;
     font-size: 15px;
     background-color: #8adb94;
   }

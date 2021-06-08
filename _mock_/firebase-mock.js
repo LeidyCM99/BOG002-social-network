@@ -1,49 +1,34 @@
-// el metodo firestore
-const firestore = () =>{
-  return {
-      colletion : (nameColletion) => {
-          return {
-              add: (objData) => {
-                  return new Promise ((resolve) => {
-                    resolve('el post fue publicado')
-                  })
-              }
-          }
+const auth = () => ({
+    signInWithEmailAndPassword: (email) => new Promise((resolve, reject) => {
+      if (email === "usuarionuevo@example.com") {
+        resolve({
+          user: {
+            displayName: "usuario nuevo",
+            emailVerified: true,
+            email: "usuarionuevo@example.com",
+          },
+        });
+      } else if (email === "usuarioNoVerificado@example.com") {
+        resolve({
+          user: {
+            displayName: "usuario no verificado",
+            emailVerified: false,
+            email: "usuarioNoVerificado@example.com",
+          },
+        });
+      } else {
+        // eslint-disable-next-line prefer-promise-reject-errors
+        reject({
+          code: "correo no registrado",
+          message: "el  correo  no se encuentra en la base de datos",
+        });
       }
-  }
-}
-//el metodo auth
-const auth = () =>{
-    return {
-        createUserWithEmailAndPassword: (email, password)=> {
-            return new Promise ((resolve) =>{
-                resolve({
-                    isNewUser: true,
-                    Email: email,
-                    Pasword: password,
-                });
-            });
-        },
-        signInWithEmailAndPassword: (email, password) => {
-            return new Promise ((resolve) =>{
-                resolve({
-                    Login: true,
-                    Email: email,
-                    Pasword: password,
-                });
-            });
-        },
-    
-    }
-
-}
+    })
+});
 
 
-const firebase = {
-    auth: auth,
-    firestore: firestore
-}
+ export  const firebase = {
+        auth,
+    };
 
-export default jest.fn(()=>{
-    return firebase;
-})
+export default jest.fn(() => firebase);

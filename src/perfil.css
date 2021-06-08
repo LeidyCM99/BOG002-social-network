@@ -3,7 +3,7 @@
   display: grid;
   height: auto;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.1fr 2fr 0.3fr;
+  grid-template-rows: 0.05fr 2fr 0.3fr;
   grid-gap: 0.2rem;
   grid-template-areas:
     "header header header"
@@ -21,7 +21,7 @@ header .menu {
   justify-content: space-between;
   display: inline-flex;
   height: 3em;
-  width: 100vw;
+  width: 95vw;
   position: fixed;
   top: 0%;
   z-index: 100;
@@ -82,13 +82,6 @@ a {
   align-items: center;
 }
 
-#editar-perfil {
-  position: absolute;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  padding: 1em;
-}
 #editar-perfil {
   position: absolute;
   display: flex;
@@ -158,8 +151,8 @@ a {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
+    width: 60vw;
+    height: 60vh;
     padding: 1em;
   }
   .subirFoto {
@@ -184,6 +177,5 @@ a {
     position: fixed;
     top: 0%;
     z-index: 100;
-    background-color: white;
   }
 }

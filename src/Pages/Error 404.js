@@ -1,7 +1,7 @@
 export function Error404() {
   const html = `
-   <img src="./imagenes/error404.png" id="error404"> 
- 
+   <h2> Pagina no encontrada</h2> 
+		<h3> ERROR 404 </h3>
  `;
   return html;
 }
