@@ -3,19 +3,22 @@ import { modalError, modalErrorLogin } from '../Pages/error.js';
 // *****************crear cuenta de usuario*****************
 
 export const autenticacionUsuario = (email, password, Name) => {
-  auth.createUserWithEmailAndPassword(email, password).then((result) => { // Signed in
+ autenticacion(email, password).then((result) => { // Signed in
     window.location.hash = '#/release';
     return result.user.updateProfile({ displayName: Name });
   }).catch((error) => {
     modalError(error);
   });
 };
-
+export function autenticacion (email, password){
+return  auth.createUserWithEmailAndPassword(email, password)
+}
 // *****************  ingresando usuario  ******************
 
 export const LoginUsuario = (email, password) => {
-  firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
+  return firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
     window.location.hash = '#/release';
+	return userCredential
   }).catch((error) => {
     modalErrorLogin(error);
   });

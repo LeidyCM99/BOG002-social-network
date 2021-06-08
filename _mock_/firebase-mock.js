@@ -1,34 +1,42 @@
 const auth = () => ({
-    signInWithEmailAndPassword: (email) => new Promise((resolve, reject) => {
-      if (email === "usuarionuevo@example.com") {
+    createUserWithEmailAndPassword: (email) => new Promise((resolve, reject) => {
+      if (email === "usuario@gmail.com") {
         resolve({
           user: {
-            displayName: "usuario nuevo",
-            emailVerified: true,
-            email: "usuarionuevo@example.com",
+            displayName: "Junita",
+            email: "usuario@gmail.com",
           },
         });
-      } else if (email === "usuarioNoVerificado@example.com") {
-        resolve({
-          user: {
-            displayName: "usuario no verificado",
-            emailVerified: false,
-            email: "usuarioNoVerificado@example.com",
-          },
-        });
+      
       } else {
-        // eslint-disable-next-line prefer-promise-reject-errors
         reject({
           code: "correo no registrado",
           message: "el  correo  no se encuentra en la base de datos",
         });
       }
-    })
+    }),
+
+	signInWithEmailAndPassword: (email) => new Promise((resolve, reject) => {
+		if (email === "usuario@gmail.com") {
+		  resolve({
+			user: {
+			  displayName: "Juanita",
+			  email: "usuario@gmail.com",
+			},
+		  });
+		
+		} else {
+		  reject({
+			code: "correo no registrado",
+			message: "el  correo  no se encuentra en la base de datos",
+		  });
+		}
+	  })
 });
 
 
  export  const firebase = {
-        auth,
+         auth,
     };
 
 export default jest.fn(() => firebase);
