@@ -10,6 +10,14 @@ const fixtureData = {
 		  a987z: {
 			nombre: "Pepito",
 			descripcion: "Comida de mar",
+			Lugar: "Santa Marta",
+			Fecha: "02-09-2021 10:40"
+		  },
+		  ab879: {
+			nombre: "Luna",
+			descripcion: "Deliciosa comida",
+			Lugar: "Foto",
+			Fecha: "07-09-2021 12:40"
 		  }
 		 }
 	   }
@@ -17,10 +25,9 @@ const fixtureData = {
   };
   global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
   import { SavePublicaciones } from '../src/Firebase/firestore.js';
-console.log(MockFirebase
-	)
-describe('Firestore añadir post', () => {
+console.log(MockFirebase)
 
+describe('Firestore añadir post', () => {
   it('debería ser una función', () => {
     expect(typeof SavePublicaciones).toBe('function');
   });

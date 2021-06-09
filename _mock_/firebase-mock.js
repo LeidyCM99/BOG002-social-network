@@ -3,32 +3,32 @@ const auth = () => ({
       if (email === "usuario@gmail.com") {
         resolve({
           user: {
-            displayName: "Junita",
+            displayName: "Juanita",
             email: "usuario@gmail.com",
           },
         });
       
       } else {
         reject({
-          code: "correo no registrado",
-          message: "el  correo  no se encuentra en la base de datos",
+          code: "correo registrado",
+          message: "el correo ya esta siendo usado",
         });
       }
     }),
 
 	signInWithEmailAndPassword: (email) => new Promise((resolve, reject) => {
-		if (email === "usuario@gmail.com") {
+		if (email === "usuarioRegistrado@gmail.com") {
 		  resolve({
 			user: {
 			  displayName: "Juanita",
-			  email: "usuario@gmail.com",
+			  email: "usuarioRegistrado@gmail.com"
 			},
 		  });
 		
 		} else {
 		  reject({
-			code: "correo no registrado",
-			message: "el  correo  no se encuentra en la base de datos",
+			code: "correo no registrado ",
+			message: "el correo es invalido",
 		  });
 		}
 	  })
