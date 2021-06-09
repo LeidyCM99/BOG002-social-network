@@ -24,20 +24,21 @@ const fixtureData = {
 	}
   };
   global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
+  global.db = firebase.firestore();
   import { SavePublicaciones } from '../src/Firebase/firestore.js';
-console.log(MockFirebase)
 
 describe('Firestore añadir post', () => {
   it('debería ser una función', () => {
     expect(typeof SavePublicaciones).toBe('function');
   });
 
-//   it('Agregar publicacion', () => {
-// 	  return  SavePublicaciones( "Tortilla con queso").then((data) =>{
-// 		expect(data.descripcion).toBe('Publicado');
-// 	  })
-    		
-//   });
+  it('Agregar publicacion', () => {
+	  return  SavePublicaciones( "Tortilla con queso")
+	  .then((data) =>{
+		expect(data.descripcion).toBe("Tortilla con queso");
+	  })
+ 		
+});
 });
 
 // describe(' expresion regular', () => {

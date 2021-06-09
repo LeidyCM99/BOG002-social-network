@@ -4,7 +4,7 @@ import { modalEditar } from '../Pages/Update.js';
 // *********************** Guardando publicaciones a la coleccion ***********************
 export const SavePublicaciones = (publicaciones) => {
 	 db.collection('publicaciones').add(publicaciones)  
-	 .then(() => {
+	 .then((data) => {
 		data.message = 'Enviado'
 	  })
 	  .catch((error) => {
