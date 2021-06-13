@@ -1,7 +1,8 @@
 // importamos el mock manual que creamos
 // import MockFirebase from '../_mock_/firebase-mock.js';
-// global.firebase = MockFirebase();
+
 import MockFirebase from 'mock-cloud-firestore';
+import { SavePublicaciones, MostrarPublicaciones } from '../src/Firebase/firestore.js';
 
 const fixtureData = {
 	__collection__: {
@@ -12,30 +13,27 @@ const fixtureData = {
 			descripcion: "Comida de mar",
 			Lugar: "Santa Marta",
 			Fecha: "02-09-2021 10:40"
-		  },
-		  ab879: {
-			nombre: "Luna",
-			descripcion: "Deliciosa comida",
-			Lugar: "Foto",
-			Fecha: "07-09-2021 12:40"
 		  }
 		 }
 	   }
 	}
   };
+  
   global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
   global.db = firebase.firestore();
-  import { SavePublicaciones } from '../src/Firebase/firestore.js';
+  
+   describe('Firestore añadir post', () => {
 
-describe('Firestore añadir post', () => {
   it('debería ser una función', () => {
     expect(typeof SavePublicaciones).toBe('function');
   });
 
-  it('Agregar publicacion', () => {
-	  return  SavePublicaciones( "Tortilla con queso")
-	  .then((data) =>{
-		expect(data.descripcion).toBe("Tortilla con queso");
+  it('Agregar publicacion', (done) => {
+	  return  SavePublicaciones( "Juanita","Tortilla con queso","Bogota","09-09-2021 12:40").then((data) =>{
+		const datos = ( ID, Nombre, UID, Descripcion, Fecha, foto, Lugar);
+		console.log(datos)
+		 done()
+		// expect(doc).toBe("Tortilla con queso");
 	  })
  		
 });

@@ -84,7 +84,13 @@ export async function ParaPublicar() {
             lugar:document.querySelector('#input-lugar').value,
           };
 
-          SavePublicaciones(DataPublicaciones)
+          SavePublicaciones(DataPublicaciones).then((data) => {
+			console.log("enviado", data)
+			data.message = 'Nota agregada'
+		  })
+		  .catch((error) => {
+			data.message = error;
+		  });
 		
         });
         document.querySelector('.area-publicar').reset();

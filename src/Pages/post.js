@@ -1,5 +1,5 @@
-export function PrintCollection(Publicar, ID, Nombre, UID, Descripcion, Fecha, Foto, Lugar) {
-  Publicar.innerHTML += `
+export function PrintCollection( ID, Nombre, UID, Descripcion, Fecha, Foto, Lugar) {
+	document.getElementById('publicaciones').innerHTML += `
         <div class="post"  >
         <form id="FormPost" data-uid= "${UID}">
           <span class="nombre-usuario"> <i class="fas fa-user-circle"> </i> ${Nombre} </span>

@@ -2,37 +2,31 @@ import { PrintCollection } from '../Pages/post.js';
 import { modalEditar } from '../Pages/Update.js';
 
 // *********************** Guardando publicaciones a la coleccion ***********************
-export const SavePublicaciones = (publicaciones) => {
-	 db.collection('publicaciones').add(publicaciones)  
-	 .then((data) => {
-		data.message = 'Enviado'
-	  })
-	  .catch((error) => {
-		data.message = error;
-	  });
-};
+export const SavePublicaciones = (publicaciones) => 
+	 db.collection('publicaciones').add(publicaciones) ;
 
 // *********************** Accediendo a todos los documentos de la coleccion ******************
 
-export function MostrarPublicaciones() {
-  const Publicar = document.getElementById('publicaciones');
+export const  MostrarPublicaciones = (datos) =>
+  
   db.collection('publicaciones').orderBy('fecha', 'desc').onSnapshot((querySnapshot) => {
-    Publicar.innerHTML = '';
-    querySnapshot.forEach(async (doc) => {
-      const ID = doc.id;
-      const Nombre = doc.data().nombre;
-      const UID = doc.data().uid;
-      const Descripcion = doc.data().descripcion;
-      const Fecha = doc.data().fecha;
-      const foto = doc.data().foto;
-      const Lugar = doc.data().lugar;
+     document.getElementById('publicaciones').innerHTML = '';
+     querySnapshot.forEach(async (doc) => {
+      const ID = doc.id,
+       Nombre = doc.data().nombre,
+       UID = doc.data().uid,
+       Descripcion = doc.data().descripcion,
+       Fecha = doc.data().fecha,
+       foto = doc.data().foto,
+       Lugar = doc.data().lugar
 
-      await PrintCollection(Publicar, ID, Nombre, UID, Descripcion, Fecha, foto, Lugar);
+      await PrintCollection( ID, Nombre, UID, Descripcion, Fecha, foto, Lugar);
+	  datos(ID, Nombre, UID, Descripcion, Fecha, foto, Lugar)
     });
     eliminar();
     editar();
   });
-}
+
 // *********************** Eliminando  los documentos de la coleccion por id ******************
 
 const eliminarPost = (id) => db.collection('publicaciones').doc(id).delete();
