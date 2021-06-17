@@ -12,7 +12,7 @@ export function PrintCollection( ID, Nombre, UID, Descripcion, Fecha, Foto, Luga
           </div>
           <div class="interaciones">
 
-              <button type="button" id="likes"> <i class="fas fa-star"> </i > <input id="contador" value="" readonly>  </button> 
+              <button type="button" id="likes"> <i class="fas fa-star"> </i >  </button> 
               <button class="editar" type="button" data-id = "${ID}" > <i class="far fa-edit" > </i> Editar </button> 
               <button class="basura" type="button" data-id = "${ID}" > <i class="fas fa-trash-alt" > </i> Eliminar </button> 
             

@@ -7,25 +7,28 @@ export const SavePublicaciones = (publicaciones) =>
 
 // *********************** Accediendo a todos los documentos de la coleccion ******************
 
-export const  MostrarPublicaciones = (datos) =>
+export function  MostrarPublicaciones () {
   
   db.collection('publicaciones').orderBy('fecha', 'desc').onSnapshot((querySnapshot) => {
      document.getElementById('publicaciones').innerHTML = '';
-     querySnapshot.forEach(async (doc) => {
-      const ID = doc.id,
-       Nombre = doc.data().nombre,
-       UID = doc.data().uid,
-       Descripcion = doc.data().descripcion,
-       Fecha = doc.data().fecha,
-       foto = doc.data().foto,
-       Lugar = doc.data().lugar
 
-      await PrintCollection( ID, Nombre, UID, Descripcion, Fecha, foto, Lugar);
-	  datos(ID, Nombre, UID, Descripcion, Fecha, foto, Lugar)
+     querySnapshot.forEach(async (doc) => {
+		
+        const data = {
+		ID  : doc.id,
+		Nombre   : doc.data().nombre,
+		UID      : doc.data().uid,
+		Descripcion : doc.data().descripcion,
+		Fecha    : doc.data().fecha,
+		foto     : doc.data().foto,
+		Lugar    : doc.data().lugar
+	} 
+      await PrintCollection( data.ID, data.Nombre, data.UID, data.Descripcion, data.Fecha, data.foto, data.Lugar);
     });
     eliminar();
     editar();
   });
+}
 
 // *********************** Eliminando  los documentos de la coleccion por id ******************
 
