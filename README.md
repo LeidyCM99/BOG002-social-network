@@ -33,8 +33,8 @@ Se trata de una maravillosa forma para potenciar las economías locales y apoyar
 
  Familias y/o amigos que deseen compartir momentos alrededor de la comida y los lugares.
 
- <img src="../images/1.jpg" width="500" height="800">
- <img src="../images/2.jpg" width="500" height="800">
+ ![Portada](https://raw.githubusercontent.com/LeidyCM99/BOG002-social-network/main/src/imagenes/1.jpg)
+ ![Objetivo](https://raw.githubusercontent.com/LeidyCM99/BOG002-social-network/main/src/imagenes/2.jpg)
 
 
 ## PROTOTIPO DE BAJA FIDELIDAD
@@ -126,7 +126,7 @@ Leidy Paola Castro.
 
 ## PRODUCTO FINAL
 
-Para el producto final se logro dejar en su mayoria una similitud con el diseño, hay mas cosas por añadir y hacerlo mejor, aun asi es de gran satisfaccion para el cliente
+Para el producto final se logro dejar en su mayoria una similitud con el diseño, en el proceso de mejora se ira agregando estilos para una experiencia agradable.
 ![Bienvenida de la pagina web](https://trello-attachments.s3.amazonaws.com/608044116542f871be8156d5/608044116542f871be8156f2/9eeeccc1e618a64c07d582d8269bb021/image.png)
 ![Producto final](https://trello-attachments.s3.amazonaws.com/608044116542f871be8156d5/608044116542f871be8156f2/68df703ff3d13bd94c9455a138a75c01/image.png)
 ![Producto final, inicio de la pagina](https://trello-attachments.s3.amazonaws.com/608044116542f871be8156d5/608044116542f871be8156f2/7c452c0dc8313f4a8cafebc5c5738483/image.png)
